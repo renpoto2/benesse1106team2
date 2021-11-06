@@ -3,6 +3,7 @@ import 'package:benesse1106team2/pages/testPage.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/nigatePage.dart';
+import 'pages/nigatePage2.dart';
 import 'pages/schedulePage.dart';
 
 void main() => runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: QuiApp(),
     );
   }
 }
