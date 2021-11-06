@@ -1,17 +1,13 @@
-
 import 'dart:collection';
 //import 'dart:html';
 import 'schedule_2.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-
 class scheduleScreen extends StatefulWidget {
-
   @override
   _scheduleScreenState createState() => _scheduleScreenState();
 }
-
 
 class _scheduleScreenState extends State<scheduleScreen> {
   // This widget is the root of your application.
@@ -24,10 +20,8 @@ class _scheduleScreenState extends State<scheduleScreen> {
     return key.day * 1000000 + key.month * 10000 + key.year;
   }
 
-
   @override
-
-  void initState(){
+  void initState() {
     super.initState();
     _selectedDay = _focusedDay;
 
@@ -41,7 +35,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
         'Event D8'
       ],
       DateTime.now().add(Duration(days: 3)):
-      Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
+          Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
       DateTime.now().add(Duration(days: 7)): [
         'Event A10',
         'Event B10',
@@ -61,69 +55,66 @@ class _scheduleScreenState extends State<scheduleScreen> {
         'Event C14'
       ],
 
+
     };
+    // if (testDate != null && workName != null && pageNum != null) {
+    //   List _testDate = testDate;
+    //   List _workName = workName;
+    //   List _pageNum = pageNum;
+    //
+    //   debugPrint(_testDate.last);
+    // }
   }
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
-
     final _events = LinkedHashMap<DateTime, List>(
-      equals:  isSameDay,
+      equals: isSameDay,
       hashCode: getHashCode,
     )..addAll(_eventsList);
 
-    List _getEventForDay(DateTime day){
+    List _getEventForDay(DateTime day) {
       return _events[day] ?? [];
     }
+
 
 
     return Scaffold(
         backgroundColor: Colors.green[100],
         // Appbar
         appBar: AppBar(
-
           backgroundColor: Colors.green.shade100,
-
           title: Text(
-            'Book', style: TextStyle(fontSize: 16),
+            'Book',
+            style: TextStyle(fontSize: 16),
           ),
-          actions: [IconButton(onPressed: (){
-            // （1） 指定した画面に遷移する
-            Navigator.push(context, MaterialPageRoute(
-              // （2） 実際に表示するページ(ウィジェット)を指定する
-                builder: (context) => schedule2()
-            ));
-          }, icon:Icon(Icons.face, color: Colors.white,),
-          )
+          actions: [
+            IconButton(
+              onPressed: () {
+
+                // （1） 指定した画面に遷移する
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        // （2） 実際に表示するページ(ウィジェット)を指定する
+                        builder: (context) => schedule2()));
+              },
+              icon: Icon(
+                Icons.face,
+                color: Colors.white,
+              ),
+            )
           ],
         ),
         body: Column(
-
-          children: [
-            Text("data"),
-
-
-
-            // Text(pageNum[0]/(7)),
-
-
-          ],
-        ),
-
-
-        body:Column(
           children: [
             TableCalendar(
               firstDay: DateTime.utc(2020, 1, 1),
               lastDay: DateTime.utc(2030, 12, 31),
               focusedDay: _focusedDay,
               eventLoader: _getEventForDay,
-              calendarFormat: _calendarFormat,          //以下、追記部分。
+              calendarFormat: _calendarFormat,
+              //以下、追記部分。
               // フォーマット変更のボタン押下時の処理
               onFormatChanged: (format) {
                 if (_calendarFormat != format) {
@@ -135,7 +126,8 @@ class _scheduleScreenState extends State<scheduleScreen> {
               headerStyle: HeaderStyle(
                 formatButtonVisible: false,
               ),
-              selectedDayPredicate: (day) {      //以下追記部分
+              selectedDayPredicate: (day) {
+                //以下追記部分
                 return isSameDay(_selectedDay, day);
               },
               onDaySelected: (selectedDay, focusedDay) {
@@ -156,25 +148,15 @@ class _scheduleScreenState extends State<scheduleScreen> {
               shrinkWrap: true,
               children: _getEventForDay(_selectedDay!)
                   .map((event) => ListTile(
-                title: Text(event.toString()),
-              ))
+                        title: Text(event.toString()),
+                      ))
                   .toList(),
-            )
-
-
+            ),
           ],
-        )
-
-
-    );
-
-
-
-
-
-
+        ));
   }
-
-
 }
+List _testDate = testDate;
+List _workName = workName;
+List _pageNum = pageNum;
 

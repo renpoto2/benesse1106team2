@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'schedulePage.dart';
+import 'package:intl/intl.dart';
+import 'dart:async';
 
 class schedule2 extends StatefulWidget {
   @override
@@ -6,14 +9,32 @@ class schedule2 extends StatefulWidget {
 }
 
 class _schedule2 extends State<schedule2> {
+  var _labelText = 'Select Date';
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? selected = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2020),
+      lastDate: DateTime(2022),
+    );
+
+    if (selected != null) {
+      setState(() {
+        _labelText = (DateFormat.yMMMd()).format(selected);
+      });
+    }
+  }
+
   // 入力された内容を保持するコントローラ
   final inputController = TextEditingController();
 
   final inputController2 = TextEditingController();
   // 表示用の変数
   String inputText = "最初の表示";
-  var inputText2  ;
+  var inputText2;
   int PageAmount = 0;
+  var today = DateTime.now();
   // 入力されたときの処理
   void setText(String s) {
     setState(() {
@@ -32,16 +53,33 @@ class _schedule2 extends State<schedule2> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: Center(
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      _labelText,
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.date_range),
+                      onPressed: () => _selectDate(context),
+                    )
+                  ],
+                ),
+              ),
+            ),
             // Column1
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 4.0),
+                  padding: const EdgeInsets.only(left: 60.0),
                   child: Container(
                       alignment: Alignment.center,
                       child: Container(
@@ -81,12 +119,19 @@ class _schedule2 extends State<schedule2> {
                 setText(inputController.text);
                 setText2(inputController2.text);
 
-
                 debugPrint("$inputText&$inputText2");
+                int pien = int.parse(inputText2);
 
-                pageNum.add(inputText2);
+                pageNum.add(pien);
                 workName.add(inputText);
-                debugPrint("${pageNum[0]}&&${workName[0]}");
+                testDate.add(_labelText);
+                int Numofwrok = workName.indexOf(inputText);
+
+                //(DateFormat.yMMMd()).format(selected);
+                debugPrint(
+                    "${testDate[Numofwrok]}&&${pageNum[Numofwrok]}&&${workName[Numofwrok]}&&$_labelText&&$today");
+
+                var dayPage = pageNum[Numofwrok]/7;
               },
               child: Text("登録"),
             ),
@@ -101,3 +146,4 @@ class _schedule2 extends State<schedule2> {
 
 List<int> pageNum = [];
 List workName = [];
+List testDate = [];

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
+
+class NigateAncer extends StatelessWidget {
   get child => null;
 
   @override
@@ -80,7 +78,9 @@ class MyApp extends StatelessWidget {
                       iconSize: 64,
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       icon: Icon(Icons.arrow_forward_ios),
                       color: Colors.pinkAccent,
                       iconSize: 64,

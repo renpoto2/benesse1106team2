@@ -179,7 +179,7 @@ class _QuizAppState extends State<QuiApp> {
                     // ここにボタンを押した時に呼ばれるコードを書く
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyApp()),
+                      MaterialPageRoute(builder: (context) => NigateAncer()),
                     );
                   },
                   color: Colors.pink[100],
@@ -213,7 +213,7 @@ class _QuizAppState extends State<QuiApp> {
                       // ここにボタンを押した時に呼ばれるコードを書く
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MyApp()),
+                        MaterialPageRoute(builder: (context) => NigateAncer()),
                       );
                     },
                     color: Colors.pink[100],
