@@ -80,7 +80,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
         backgroundColor: Colors.green[100],
         // Appbar
         appBar: AppBar(
-          backgroundColor: Colors.green[100],
+          backgroundColor: Colors.green.shade100,
           title: Text(
             'Book', style: TextStyle(fontSize: 16),
           ),
