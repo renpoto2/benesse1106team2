@@ -61,6 +61,12 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
+              RaisedButton(
+                child: const Text('戻る'),
+                color: Colors.orange,
+                textColor: Colors.white,
+                onPressed: () {},
+              ),
             ],
           ),
         ),
