@@ -36,16 +36,16 @@ class _MyHomePageState extends State<MyHomePage> {
   List<BottomNavigationBarItem> myBottomNavBarItems() {
     return [
       BottomNavigationBarItem(
-        icon: Icon(Icons.book),
-        label: 'Book',
+        icon: Icon(Icons.calendar_today_outlined,),
+        label: 'スケジュール',
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.cloud),
-        label: 'Cloud',
+        icon: Icon(Icons.border_color),
+        label: 'テスト',
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.cake),
-        label: 'Cake',
+        icon: Icon(Icons.auto_stories),
+        label: 'ニガテ',
       ),
     ];
   }
