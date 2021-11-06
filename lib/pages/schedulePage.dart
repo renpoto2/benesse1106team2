@@ -10,6 +10,7 @@ class scheduleScreen extends StatefulWidget{
 class _scheduleScreen extends State<scheduleScreen>   {
   var list = ["メッセージ", "メッセージ", "メッセージ", "メッセージ", "メッセージ",];
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,8 +34,13 @@ class _scheduleScreen extends State<scheduleScreen>   {
           ],
         ),
         body: Column(
+
           children: [
-            Text("data")
+            Text("data"),
+
+
+
+            // Text(pageNum[0]/(7)),
 
 
           ],
@@ -43,5 +49,4 @@ class _scheduleScreen extends State<scheduleScreen>   {
     );
   }
 
- 
 }
