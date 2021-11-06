@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  get child => null;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -61,11 +63,23 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              RaisedButton(
-                child: const Text('戻る'),
-                color: Colors.orange,
-                textColor: Colors.white,
+              IconButton(
                 onPressed: () {},
+                icon: Icon(Icons.check_outlined),
+                color: Colors.greenAccent,
+                iconSize: 64,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.clear_outlined),
+                color: Colors.redAccent,
+                iconSize: 64,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.arrow_forward_ios),
+                color: Colors.pinkAccent,
+                iconSize: 64,
               ),
             ],
           ),
