@@ -3,7 +3,7 @@ import 'package:benesse1106team2/pages/nigatePage.dart';
 import 'package:benesse1106team2/pages/nigatePage2.dart';
 import 'package:benesse1106team2/pages/testPage.dart';
 import 'package:flutter/material.dart';
-
+import 'package:benesse1106team2/pages/nigateAnswer.dart';
 import 'package:benesse1106team2/pages/schedulePage.dart';
 
 
@@ -13,16 +13,14 @@ class NextPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("次のページ"),
+        title: Text('KBOYのFlutter大学'),
       ),
       body: Container(
-        height: double.infinity,
         color: Colors.red,
       ),
     );
   }
 }
-
 
 
 
@@ -43,7 +41,7 @@ class _QuizAppState extends State<QuiApp> {
   int _currentQuestionIndex = 0;
 
   List questionBank = [
-    Question.name('パンはパンでもだべられないパンはフランスパンである？', false)
+    Question.name(' (Did, Was) Ms. Green watch TV yesterday?', true)
   ];
 
   @override
@@ -79,6 +77,17 @@ class _QuizAppState extends State<QuiApp> {
                     ),
                   ),
                 ),
+              ),Padding(
+                padding: const EdgeInsets.only(top: 100.0),
+                child: Center(
+                  child: Text(
+                    "次の(　　)内で正しいものを選びなさい",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25.0,
+                    ),
+                  ),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 120.0),
@@ -96,7 +105,7 @@ class _QuizAppState extends State<QuiApp> {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           questionBank[_currentQuestionIndex].questionText,
-                          style: TextStyle(fontSize: 16.9,
+                          style: TextStyle(fontSize: 25.0,
                           ),
                         ),
                       )),
@@ -105,24 +114,30 @@ class _QuizAppState extends State<QuiApp> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  RaisedButton(
-                    onPressed: () => _checkAnswer(true, context),
-                    color: Colors.blueGrey.shade900,
-                    child: Text(
-                      "○",
-                      style: TextStyle(color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.0),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: RaisedButton(
+                      onPressed: () => _checkAnswer(true, context),
+                      color: Colors.pink[100],
+                      child: Text(
+                        "Did",
+                        style: TextStyle(color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30.0),
+                      ),
                     ),
                   ),
-                  RaisedButton(
-                    onPressed: () => _checkAnswer(false, context),
-                    color: Colors.blueGrey.shade900,
-                    child: Text(
-                      "✕",
-                      style: TextStyle(color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: RaisedButton(
+                      onPressed: () => _checkAnswer(false, context),
+                      color: Colors.pink[100],
+                      child: Text(
+                        "Was",
+                        style: TextStyle(color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30.0),
+                      ),
                     ),
                   ),
                 ],
@@ -155,9 +170,22 @@ class _QuizAppState extends State<QuiApp> {
               children: <Widget>[
               // コンテンツ領域
               SimpleDialogOption(
-              onPressed: () => Navigator.pop(context), //遷移先指定場所
-          child: Center(child: Text("解説へ！")),
-          ),
+                child: RaisedButton(
+                  child: Text('解説へ',
+                    style: TextStyle(color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30.0),),
+                  onPressed: () {
+                    // ここにボタンを押した時に呼ばれるコードを書く
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyApp()),
+                    );
+                  },
+                  color: Colors.pink[100],
+                ),
+
+              ),
           ],
           );
         },
@@ -176,8 +204,21 @@ class _QuizAppState extends State<QuiApp> {
             children: <Widget>[
               // コンテンツ領域
               SimpleDialogOption(
-                onPressed: () => Navigator.pop(context), //遷移先指定場所
-                child: Center(child: Text("解説へ！")),
+                  child: RaisedButton(
+                    child: Text('解説へ',
+              style: TextStyle(color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 30.0),),
+                    onPressed: () {
+                      // ここにボタンを押した時に呼ばれるコードを書く
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyApp()),
+                      );
+                    },
+                    color: Colors.pink[100],
+                  ),
+
               ),
             ],
           );
