@@ -12,6 +12,7 @@ class scheduleScreen extends StatefulWidget {
 class _scheduleScreenState extends State<scheduleScreen> {
   // This widget is the root of your application.
   DateTime _focusedDay = DateTime.now();
+  DateTime _testDay = DateTime.now().add(Duration(days: 24));
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime? _selectedDay;
   Map<DateTime, List> _eventsList = {};
@@ -26,34 +27,27 @@ class _scheduleScreenState extends State<scheduleScreen> {
     _selectedDay = _focusedDay;
 
     _eventsList = {
-      DateTime.now().subtract(Duration(days: 2)): ['Event A6', 'Event B6'],
-      DateTime.now(): ['Event A7', 'Event B7', 'Event C7', 'Event D7'],
-      DateTime.now().add(Duration(days: 1)): [
-        'Event A8',
-        'Event B8',
-        'Event C8',
-        'Event D8'
-      ],
-      DateTime.now().add(Duration(days: 3)):
-          Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
-      DateTime.now().add(Duration(days: 7)): [
-        'Event A10',
-        'Event B10',
-        'Event C10'
-      ],
-      DateTime.now().add(Duration(days: 11)): ['Event A11', 'Event B11'],
-      DateTime.now().add(Duration(days: 17)): [
-        'Event A12',
-        'Event B12',
-        'Event C12',
-        'Event D12'
-      ],
-      DateTime.now().add(Duration(days: 22)): ['Event A13', 'Event B13'],
-      DateTime.now().add(Duration(days: 26)): [
-        'Event A14',
-        'Event B14',
-        'Event C14'
-      ],
+
+      //DateTime.now().add(Duration(days: 1)): ['Event A8', 'Event B8', 'Event C8', 'Event D8'],
+      //DateTime.now().add(Duration(days: 3)): Set.from(['Event A9', 'Event A9', 'Event B9']).toList(),
+      DateTime.now().add(Duration(days: 6)): ['P30', 'P31','P32', 'P33'],
+      DateTime.now().add(Duration(days: 7)): ['P34', 'P35','P36','P37'],
+      DateTime.now().add(Duration(days: 8)): ['P38', 'P39'],
+      DateTime.now().add(Duration(days: 9)): ['P40', 'P41'],
+      DateTime.now().add(Duration(days: 10)): ['P42', 'P43'],
+      DateTime.now().add(Duration(days: 11)): ['P44', 'P45'],
+      DateTime.now().add(Duration(days: 12)): ['P46', 'P47'],
+      DateTime.now().add(Duration(days: 13)): ['P48', 'P49','P50','P51'],
+      DateTime.now().add(Duration(days: 14)): ['P52', 'P53','P54','P55'],
+      DateTime.now().add(Duration(days: 15)): ['P56', 'P57'],
+      DateTime.now().add(Duration(days: 16)): ['P58', 'P59'],
+      DateTime.now().add(Duration(days: 17)): ['予想テスト①'],
+      DateTime.now().add(Duration(days: 18)): ['ニガテ'],
+      DateTime.now().add(Duration(days: 19)): ['予想テスト②'],
+      DateTime.now().add(Duration(days: 20)): ['ニガテ'],
+      DateTime.now().add(Duration(days: 21)): ['予想テスト③'],
+      DateTime.now().add(Duration(days: 22)): ['ニガテ'],
+
 
 
     };
@@ -80,13 +74,16 @@ class _scheduleScreenState extends State<scheduleScreen> {
 
 
     return Scaffold(
-        backgroundColor: Colors.green[100],
+        backgroundColor: Colors.white,
         // Appbar
         appBar: AppBar(
-          backgroundColor: Colors.green.shade100,
+
+
+          backgroundColor: Colors.blueGrey,
+          centerTitle: true,
           title: Text(
-            'Book',
-            style: TextStyle(fontSize: 16),
+            'スケジュール', style: TextStyle(fontSize: 16,color: Colors.white),
+
           ),
           actions: [
             IconButton(
@@ -106,12 +103,15 @@ class _scheduleScreenState extends State<scheduleScreen> {
             )
           ],
         ),
-        body: Column(
+
+
+        body:Column(
+
           children: [
             TableCalendar(
               firstDay: DateTime.utc(2020, 1, 1),
               lastDay: DateTime.utc(2030, 12, 31),
-              focusedDay: _focusedDay,
+              focusedDay: _focusedDay,//起動時画面
               eventLoader: _getEventForDay,
               calendarFormat: _calendarFormat,
               //以下、追記部分。
@@ -142,16 +142,61 @@ class _scheduleScreenState extends State<scheduleScreen> {
               onPageChanged: (focusedDay) {
                 _focusedDay = focusedDay;
               },
+
             ),
-            //以下追記
-            ListView(
-              shrinkWrap: true,
-              children: _getEventForDay(_selectedDay!)
-                  .map((event) => ListTile(
-                        title: Text(event.toString()),
-                      ))
-                  .toList(),
+
+            Container(
+              height: 100,
             ),
+            Container(
+              width: 500,
+              color: Colors.blueGrey,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(
+                      Icons.check_box,
+                      size: 30.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("ToDo",style:TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+
+                    ),),
+                  ),
+                ],
+              ),
+
+
+            ),
+
+            Container(
+              width: 500,
+              color: Colors.blueGrey.shade100,
+              child: ListView(
+                shrinkWrap: true,
+                children: _getEventForDay(_selectedDay!)
+                    .map((event) => ListTile(
+                          title: Text("・"+event.toString(),
+                          style: TextStyle(
+                            //fontWeight: FontWeight.bold,
+                            fontSize: 25,
+
+                          ),),
+                ))
+                    .toList(),
+              ),
+            ),
+
+
+
+
           ],
         ));
   }
