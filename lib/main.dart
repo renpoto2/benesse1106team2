@@ -40,11 +40,11 @@ class _MyHomePageState extends State<MyHomePage> {
         label: 'スケジュール',
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.border_color,),
+        icon: Icon(Icons.border_color),
         label: 'テスト',
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.auto_stories,),
+        icon: Icon(Icons.auto_stories),
         label: 'ニガテ',
       ),
     ];
