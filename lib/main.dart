@@ -1,7 +1,8 @@
-import 'package:benesse1106team2/pages/nigatePage.dart';
+
 import 'package:benesse1106team2/pages/testPage.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/nigatePage.dart';
 import 'pages/schedulePage.dart';
 
 void main() => runApp(MyApp());

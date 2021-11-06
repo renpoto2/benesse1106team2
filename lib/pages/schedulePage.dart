@@ -1,6 +1,7 @@
+
 import 'dart:collection';
 //import 'dart:html';
-
+import 'schedule_2.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -63,6 +64,11 @@ class _scheduleScreenState extends State<scheduleScreen> {
     };
   }
 
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
 
@@ -80,11 +86,35 @@ class _scheduleScreenState extends State<scheduleScreen> {
         backgroundColor: Colors.green[100],
         // Appbar
         appBar: AppBar(
+
           backgroundColor: Colors.green.shade100,
+
           title: Text(
             'Book', style: TextStyle(fontSize: 16),
           ),
+          actions: [IconButton(onPressed: (){
+            // （1） 指定した画面に遷移する
+            Navigator.push(context, MaterialPageRoute(
+              // （2） 実際に表示するページ(ウィジェット)を指定する
+                builder: (context) => schedule2()
+            ));
+          }, icon:Icon(Icons.face, color: Colors.white,),
+          )
+          ],
         ),
+        body: Column(
+
+          children: [
+            Text("data"),
+
+
+
+            // Text(pageNum[0]/(7)),
+
+
+          ],
+        ),
+
 
         body:Column(
           children: [
@@ -147,3 +177,4 @@ class _scheduleScreenState extends State<scheduleScreen> {
 
 
 }
+
