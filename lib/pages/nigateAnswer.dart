@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             children: <Widget>[
               Container(
                 height: 70,
-                color: Colors.green,
+                color: Colors.greenAccent,
                 child: Center(
                   child: Text(
                     'Q1',
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
               ),
               Container(
                 height: 70,
-                color: Colors.red,
+                color: Colors.redAccent,
                 child: Center(
                   child: Text(
                     '問題文',
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               Container(
-                color: Colors.yellow,
+                color: Colors.yellowAccent,
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Center(
@@ -63,23 +63,30 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.check_outlined),
-                color: Colors.greenAccent,
-                iconSize: 64,
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.clear_outlined),
-                color: Colors.redAccent,
-                iconSize: 64,
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.arrow_forward_ios),
-                color: Colors.pinkAccent,
-                iconSize: 64,
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.check_outlined),
+                      color: Colors.greenAccent,
+                      iconSize: 64,
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.clear_outlined),
+                      color: Colors.redAccent,
+                      iconSize: 64,
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_forward_ios),
+                      color: Colors.pinkAccent,
+                      iconSize: 64,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
