@@ -84,7 +84,7 @@ class _schedule2 extends State<schedule2> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 50.0),
+                  padding: const EdgeInsets.only(left: 30.0),
                   child: Container(
                       alignment: Alignment.center,
                       child: Container(
@@ -160,7 +160,9 @@ class _schedule2 extends State<schedule2> {
 
     ),
 
-            Text("一日${_dayPage.ceil()}ページやれば${before1week}日には終わるよ！"),
+            Text("一日${_dayPage.ceil()}ページやれば${before1week}日には終わるよ！",style: TextStyle(
+
+            ),),
           ],
         ),
       ),
