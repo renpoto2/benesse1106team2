@@ -34,8 +34,9 @@ class _schedule2 extends State<schedule2> {
   String inputText = "最初の表示";
   var inputText2;
   int PageAmount = 0;
-  var _dayPage;
-  var before1week;
+  var _dayPage =100.0;
+  var dayPage = 10.0;
+  var before1week = 10;
   var today = DateTime.now();
   // 入力されたときの処理
   void setText(String s) {
@@ -141,10 +142,13 @@ class _schedule2 extends State<schedule2> {
                   debugPrint(
                       "${testDate[Numofwrok]}&&${pageNum[Numofwrok]}&&${workName[Numofwrok]}&&$_labelText&&$today&&${devision}");
 
-                  var dayPage = pageNum[Numofwrok] / devision;
+                   dayPage = pageNum[Numofwrok] / devision;
                   _dayPage = dayPage;
                   before1week = Pienta2-7;
                   debugPrint("${dayPage}");
+
+
+
                 },
                 child: Text("登録"),
               highlightElevation: 16,
