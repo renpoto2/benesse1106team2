@@ -85,12 +85,9 @@ class NigateAncer extends StatelessWidget {
                     ),
                     IconButton(
                         onPressed: () {
-                          // ここにボタンを押した時に呼ばれるコードを書く
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => nigateScreen(),
-                              ));
+                          int count = 0;
+                          Navigator.popUntil(context, (_) => count++ >= 3);
+
                         },
                       icon: Icon(Icons.arrow_forward_ios),
                       color: Colors.pinkAccent,
