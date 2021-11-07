@@ -39,30 +39,37 @@ class _testScreen extends State<testScreen> {
 
             itemCount: titleList.length,
             itemBuilder: (BuildContext context, int i){
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                 ListTile(
-                  onTap: (){
-
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionPage(titleList[i])));
-
-                  },
-                   title:  Row(children: <Widget>[Padding(
-                     padding: const EdgeInsets.all(30.0),
-                     child: Text(titleList[i],
-                       style:  TextStyle(
-                           fontWeight: FontWeight.w500,
-                           fontSize: 40.0,
-                          backgroundColor: Colors.white10,
-                        ),
-                     ),
-                   )
-                   ], mainAxisAlignment: MainAxisAlignment.center,),
-
+              return Container(
+                decoration: new BoxDecoration(
+                  border: new Border(
+                    bottom: new BorderSide(color: Colors.black),
+                  ),
                 ),
-              ],
-            );
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                   ListTile(
+                    onTap: (){
+
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionPage(titleList[i])));
+
+                    },
+                     title:  Row(children: <Widget>[Padding(
+                       padding: const EdgeInsets.all(30.0),
+                       child: Text(titleList[i],
+                         style:  TextStyle(
+                             fontWeight: FontWeight.w500,
+                             fontSize: 40.0,
+                            backgroundColor: Colors.white10,
+                          ),
+                       ),
+                     )
+                     ], mainAxisAlignment: MainAxisAlignment.center,),
+
+                  ),
+                ],
+            ),
+              );
           },
         ),
      );
