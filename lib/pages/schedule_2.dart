@@ -34,6 +34,8 @@ class _schedule2 extends State<schedule2> {
   String inputText = "最初の表示";
   var inputText2;
   int PageAmount = 0;
+  var _dayPage;
+  var before1week;
   var today = DateTime.now();
   // 入力されたときの処理
   void setText(String s) {
@@ -140,6 +142,8 @@ class _schedule2 extends State<schedule2> {
                       "${testDate[Numofwrok]}&&${pageNum[Numofwrok]}&&${workName[Numofwrok]}&&$_labelText&&$today&&${devision}");
 
                   var dayPage = pageNum[Numofwrok] / devision;
+                  _dayPage = dayPage;
+                  before1week = Pienta2-7;
                   debugPrint("${dayPage}");
                 },
                 child: Text("登録"),
@@ -148,8 +152,11 @@ class _schedule2 extends State<schedule2> {
               onHighlightChanged: (value) {},
 
             ),
+            SizedBox(height: 90,
 
-            Text("$inputText&$inputText2"),
+    ),
+
+            Text("一日${_dayPage.ceil()}ページやれば${before1week}日には終わるよ！"),
           ],
         ),
       ),
