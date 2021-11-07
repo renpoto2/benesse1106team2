@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: QuiApp(),
+      home: MyHomePage(),
     );
   }
 }
@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static List<Widget> _pageList = [
     scheduleScreen(),
     testScreen(),
-    nigateSchreen()
+    nigateScreen(),
   ];
   // ページ下部に並べるナビゲーションメニューの一覧
   List<BottomNavigationBarItem> myBottomNavBarItems() {
