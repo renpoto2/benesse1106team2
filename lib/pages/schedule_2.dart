@@ -51,7 +51,9 @@ class _schedule2 extends State<schedule2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("ToDo入力"),
+      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -79,7 +81,7 @@ class _schedule2 extends State<schedule2> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 60.0),
+                  padding: const EdgeInsets.only(left: 50.0),
                   child: Container(
                       alignment: Alignment.center,
                       child: Container(
@@ -89,7 +91,7 @@ class _schedule2 extends State<schedule2> {
                           decoration: InputDecoration(
                               border: InputBorder.none, hintText: 'ワークの名前'),
                           enabled: true, //活性or非活性
-                          style: TextStyle(color: Colors.red), //入力文字のスタイル
+                          style: TextStyle(color: Colors.black), //入力文字のスタイル
                           obscureText: false, //trueでマスク（****表記）にする
                           maxLines: 1, //入力可能行数
                           controller: inputController,
@@ -105,7 +107,7 @@ class _schedule2 extends State<schedule2> {
                         border: InputBorder.none, hintText: 'ページ数'),
                     enabled: true, //活性or非活性
                     //入力最大文字数
-                    style: TextStyle(color: Colors.red), //入力文字のスタイル
+                    style: TextStyle(color: Colors.black), //入力文字のスタイル
                     obscureText: false, //trueでマスク（****表記）にする
                     maxLines: 1, //入力可能行数
                     controller: inputController2,
@@ -114,26 +116,37 @@ class _schedule2 extends State<schedule2> {
               ],
             ),
             // Column2
-            GestureDetector(
-              onTap: () {
-                setText(inputController.text);
-                setText2(inputController2.text);
 
-                debugPrint("$inputText&$inputText2");
-                int pien = int.parse(inputText2);
+            RaisedButton(
+                onPressed: () {
+                  setText(inputController.text);
+                  setText2(inputController2.text);
 
-                pageNum.add(pien);
-                workName.add(inputText);
-                testDate.add(_labelText);
-                int Numofwrok = workName.indexOf(inputText);
+                  debugPrint("$inputText&$inputText2");
+                  int pien = int.parse(inputText2);
 
-                //(DateFormat.yMMMd()).format(selected);
-                debugPrint(
-                    "${testDate[Numofwrok]}&&${pageNum[Numofwrok]}&&${workName[Numofwrok]}&&$_labelText&&$today");
+                  pageNum.add(pien);
+                  workName.add(inputText);
+                  testDate.add(_labelText);
+                  int Numofwrok = workName.indexOf(inputText);
+                  var Aday = inputText;
+                  var day = today.day;
+                  debugPrint(_labelText.substring(4, 6));
+                  var Pienta = _labelText.substring(4, 6);
+                  var Pienta2 = int.parse(Pienta);
+                  var devision = Pienta2 - 7 - day;
+                  //(DateFormat.yMMMd()).format(selected);
+                  debugPrint(
+                      "${testDate[Numofwrok]}&&${pageNum[Numofwrok]}&&${workName[Numofwrok]}&&$_labelText&&$today&&${devision}");
 
-                var dayPage = pageNum[Numofwrok]/7;
-              },
-              child: Text("登録"),
+                  var dayPage = pageNum[Numofwrok] / devision;
+                  debugPrint("${dayPage}");
+                },
+                child: Text("登録"),
+              highlightElevation: 16,
+              highlightColor: Colors.blue,
+              onHighlightChanged: (value) {},
+
             ),
 
             Text("$inputText&$inputText2"),
@@ -147,3 +160,4 @@ class _schedule2 extends State<schedule2> {
 List<int> pageNum = [];
 List workName = [];
 List testDate = [];
+List dayuse = [];
