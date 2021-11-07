@@ -97,7 +97,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
                         builder: (context) => schedule2()));
               },
               icon: Icon(
-                Icons.face,
+                Icons.edit,
                 color: Colors.white,
               ),
             )
