@@ -30,37 +30,44 @@ class _nigateScreen extends State<nigateScreen> {
       appBar: AppBar(
         backgroundColor: Colors.indigo[200],
         title: Text(
-          'ニガテ＜科目選択＞',
-          style: TextStyle(fontSize: 20),
+          'Weak Point ＜科目選択＞',
+          style: TextStyle(fontSize: 40),
         ),
       ),
       body: ListView.builder(
 
         itemCount: titleList.length,
         itemBuilder: (BuildContext context, int i){
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ListTile(
-                onTap: (){
-
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => QuiApp()));
-
-                },
-                title:  Row(children: <Widget>[Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: Text(titleList[i],
-                    style:  TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 40.0,
-                      backgroundColor: Colors.white10,
-                    ),
-                  ),
-                )
-                ], mainAxisAlignment: MainAxisAlignment.center,),
-
+          return Container(
+            decoration: new BoxDecoration(
+              border: new Border(
+                bottom: new BorderSide(color: Colors.black),
               ),
-            ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ListTile(
+                  onTap: (){
+
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => QuiApp()));
+
+                  },
+                  title:  Row(children: <Widget>[Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Text(titleList[i],
+                      style:  TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 40.0,
+                        backgroundColor: Colors.white10,
+                      ),
+                    ),
+                  )
+                  ], mainAxisAlignment: MainAxisAlignment.center,),
+
+                ),
+              ],
+            ),
           );
         },
       ),
