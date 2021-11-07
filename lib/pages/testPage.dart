@@ -29,10 +29,10 @@ class _testScreen extends State<testScreen> {
 
         // Appbar
         appBar: AppBar(
-          backgroundColor: Colors.blue[100],
+          backgroundColor: Colors.indigo.shade200,
           title: Text(
-            '科目選択',
-            style: TextStyle(fontSize: 20),
+            'Test<科目選択>',
+            style: TextStyle(fontSize: 40),
           ),
         ),
         body: ListView.builder(

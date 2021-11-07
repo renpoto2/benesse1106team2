@@ -34,12 +34,12 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.amberAccent,
+        backgroundColor: Colors.white,
       appBar: AppBar(
-      backgroundColor: Colors.blue[100],
+      backgroundColor: Colors.indigo.shade200,
       title: Text(
-        '結果',
-        style: TextStyle(fontSize: 20),
+        'Result',
+        style: TextStyle(fontSize: 40),
           ),
         ),
         body: Column(
@@ -87,7 +87,7 @@ class Result extends StatelessWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.pink,
+                  primary: Colors.indigo.shade300,
                   fixedSize: const Size(300, 100),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
