@@ -7,7 +7,6 @@ import 'package:benesse1106team2/pages/nigateAnswer.dart';
 import 'package:benesse1106team2/pages/schedulePage.dart';
 
 
-
 class NextPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -54,7 +53,7 @@ class _QuizAppState extends State<QuiApp> {
           fontSize: 30.0,
         ),),
         centerTitle: true,
-        backgroundColor: Colors.pink[100],
+        backgroundColor: Colors.indigo[200],
       ),
 
       // backgroundColor: Colors.blueGrey,
@@ -118,7 +117,7 @@ class _QuizAppState extends State<QuiApp> {
                     padding: const EdgeInsets.all(10.0),
                     child: RaisedButton(
                       onPressed: () => _checkAnswer(true, context),
-                      color: Colors.pink[100],
+                      color: Colors.indigo[300],
                       child: Text(
                         "Did",
                         style: TextStyle(color: Colors.white,
@@ -131,7 +130,7 @@ class _QuizAppState extends State<QuiApp> {
                     padding: const EdgeInsets.all(10.0),
                     child: RaisedButton(
                       onPressed: () => _checkAnswer(false, context),
-                      color: Colors.pink[100],
+                      color: Colors.indigo[300],
                       child: Text(
                         "Was",
                         style: TextStyle(color: Colors.white,
@@ -182,7 +181,7 @@ class _QuizAppState extends State<QuiApp> {
                       MaterialPageRoute(builder: (context) => NigateAncer()),
                     );
                   },
-                  color: Colors.pink[100],
+                  color: Colors.indigo[200],
                 ),
 
               ),
@@ -216,7 +215,7 @@ class _QuizAppState extends State<QuiApp> {
                         MaterialPageRoute(builder: (context) => NigateAncer()),
                       );
                     },
-                    color: Colors.pink[100],
+                    color: Colors.indigo[200],
                   ),
 
               ),

@@ -7,6 +7,8 @@ class nigateScreen extends StatefulWidget {
 }
 
 
+
+
 class _nigateScreen extends State<nigateScreen> {
   // This widget is the root of your application.
   int _counter = 0;
@@ -26,9 +28,9 @@ class _nigateScreen extends State<nigateScreen> {
 
       // Appbar
       appBar: AppBar(
-        backgroundColor: Colors.blue[100],
+        backgroundColor: Colors.indigo[200],
         title: Text(
-          '科目選択',
+          'ニガテ＜科目選択＞',
           style: TextStyle(fontSize: 20),
         ),
       ),
