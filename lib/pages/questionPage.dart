@@ -36,7 +36,11 @@ class _QuestionPageState extends State<QuestionPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('問題'),
+          backgroundColor: Colors.blue[100],
+          title: Text(
+            '問題',
+            style: TextStyle(fontSize: 20),
+          ),
         ),
         body:Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -44,12 +48,11 @@ class _QuestionPageState extends State<QuestionPage> {
           children: [
             Expanded(
               child: Padding(
-
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(30.10),
                 child: Text(
                   questions[questionNumber],
                   style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: 40.0,
                   ),
                 ),
               ),
@@ -79,12 +82,22 @@ class _QuestionPageState extends State<QuestionPage> {
                     }
                   },
                   child: Text(
-                    '正しい',
+                    '○',
                     style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 60.0,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.amberAccent,
+                    onPrimary: Colors.cyan,
+                    fixedSize: Size(500, 0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
+                      )
+                  ),
                 ),
               ),
             ),
@@ -114,14 +127,24 @@ class _QuestionPageState extends State<QuestionPage> {
 
 
                     child: Text(
-                      '誤り',
+                      '✘',
                       style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 60.0,
                       ),
                     ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.amberAccent,
+                    onPrimary: Colors.cyan,
+                    fixedSize: Size(500, 0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
+                      )
+                  ),
                 ),
               ),
-            )
+            ),
 
           ],
         ),
