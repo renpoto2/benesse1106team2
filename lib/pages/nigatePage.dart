@@ -12,6 +12,7 @@ class nigateSchreen extends StatelessWidget {
             'Cake',
             style: TextStyle(fontSize: 16),
           ),
+
         ),
         body: Center(child: Icon(Icons.cake)));
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'questionPage.dart';
+
 
 class testScreen extends StatefulWidget {
 @override
@@ -11,7 +13,9 @@ _testScreen createState() => _testScreen();
 class _testScreen extends State<testScreen> {
   // This widget is the root of your application.
   int _counter = 0;
+
   List<String>titleList = ['国語','数学','英語','理科','社会',];
+
   void _incrementCounter() {
     setState(() {
 
@@ -38,7 +42,9 @@ class _testScreen extends State<testScreen> {
                 children: <Widget>[
                  ListTile(
                   onTap: (){
+
                     Navigator.push(context, MaterialPageRoute(builder: (context) => QuestionPage(titleList[i])));
+
                   },
                    title:  Row(children: <Widget>[new Text(titleList[i],
                      style:  TextStyle(
@@ -53,4 +59,6 @@ class _testScreen extends State<testScreen> {
         ),
      );
   }
+
 }
+
