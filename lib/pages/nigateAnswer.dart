@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 
+import 'nigatePage.dart';
+
+
+
+
 
 class NigateAncer extends StatelessWidget {
   get child => null;
@@ -30,22 +35,24 @@ class NigateAncer extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 70,
                 color: Colors.redAccent,
-                child: Center(
-                  child: Text(
-                    '問題文',
-                    style: TextStyle(fontSize: 40),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Center(
+                    child: Text(
+                      '(Did, Was) Ms. Green watch TV yesterday?',
+                      style: TextStyle(fontSize: 40),
+                    ),
                   ),
                 ),
               ),
               Container(
                 color: Colors.yellowAccent,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(20.0),
                   child: Center(
                     child: Text(
-                      '答え',
+                      '答え : Did',
                       style: TextStyle(fontSize: 40),
                     ),
                   ),
@@ -53,10 +60,9 @@ class NigateAncer extends StatelessWidget {
               ),
               Container(
                 color: Colors.orangeAccent,
-                height: 70,
                 child: Center(
                   child: Text(
-                    '解説文',
+                    '“Yes / No” で答えられる疑問文は、be動詞がある場合、be動詞を文章の先頭にもってきますが一般動詞の場合には “Does” や “Do”、”Did” が文頭で使われ、あとの語順は肯定文のままで動詞は原型になります。',
                     style: TextStyle(fontSize: 40),
                   ),
                 ),
