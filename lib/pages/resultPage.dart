@@ -76,12 +76,10 @@ class Result extends StatelessWidget {
               ),
               child: ElevatedButton(
                 onPressed: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(
-                        builder: (context) => testScreen(),
-                      ),
-                  );
-                },
+                  int count = 0;
+                  Navigator.popUntil(context, (_) => count++ >= 2);
+
+                  },
                 child: Text('科目選択にもどる', style: TextStyle(
                     fontSize: 30.0,
                   ),
