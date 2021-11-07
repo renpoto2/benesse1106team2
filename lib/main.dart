@@ -1,7 +1,9 @@
-import 'package:benesse1106team2/pages/nigatePage.dart';
+
 import 'package:benesse1106team2/pages/testPage.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/nigatePage.dart';
+import 'pages/nigatePage2.dart';
 import 'pages/schedulePage.dart';
 
 void main() => runApp(MyApp());
@@ -29,22 +31,22 @@ class _MyHomePageState extends State<MyHomePage> {
   static List<Widget> _pageList = [
     scheduleScreen(),
     testScreen(),
-    nigateSchreen()
+    nigateScreen(),
   ];
   // ページ下部に並べるナビゲーションメニューの一覧
   List<BottomNavigationBarItem> myBottomNavBarItems() {
     return [
       BottomNavigationBarItem(
-        icon: Icon(Icons.book),
-        label: 'Book',
+        icon: Icon(Icons.calendar_today_outlined,),
+        label: 'スケジュール',
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.cloud),
-        label: 'Cloud',
+        icon: Icon(Icons.border_color),
+        label: 'テスト',
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.cake),
-        label: 'Cake',
+        icon: Icon(Icons.auto_stories),
+        label: 'ニガテ',
       ),
     ];
   }
