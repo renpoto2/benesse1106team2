@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'testPage.dart';
 
+
 class Result extends StatelessWidget {
 
   final int numberOfCorrectAnswer;
@@ -10,19 +11,19 @@ class Result extends StatelessWidget {
   Widget resultWords() {
     if(numberOfCorrectAnswer < 2){
       return Center(
-        child: Text('平均点',
+        child: Text('あと${70-numberOfCorrectAnswer*25}点 がんばろう',
           style: TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 20.0,
+          fontSize: 25.0,
          ),
         ),
       );
     }else {
       return Center(
-        child: Text('平均超え！',
+        child: Text('合格点!',
           style: TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 20.0,
+          fontSize: 25.0,
           ),
         ),
       );
@@ -33,6 +34,7 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.amberAccent,
       appBar: AppBar(
       backgroundColor: Colors.blue[100],
       title: Text(
@@ -41,12 +43,12 @@ class Result extends StatelessWidget {
           ),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
 
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(20.0),
               child: Center(
                   child: Text(
                     '4問中$numberOfCorrectAnswer問正解',
@@ -61,7 +63,7 @@ class Result extends StatelessWidget {
                 child: Text(
                   '${numberOfCorrectAnswer*25}点',
                   style: TextStyle(
-                    fontSize:50.0,
+                    fontSize:70.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -80,9 +82,18 @@ class Result extends StatelessWidget {
                       ),
                   );
                 },
-                child: Text('科目選択に戻る', style: TextStyle(
+                child: Text('科目選択にもどる', style: TextStyle(
                     fontSize: 30.0,
                   ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.pink,
+                  fixedSize: const Size(300, 100),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    )
                 ),
               ),
             ),
