@@ -55,7 +55,8 @@ class _schedule2 extends State<schedule2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ToDo入力"),
+        backgroundColor: Colors.indigo.shade200,
+        title: Text("設定",style: TextStyle(fontSize: 40),),
       ),
       body: Center(
         child: Column(

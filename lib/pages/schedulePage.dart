@@ -79,10 +79,10 @@ class _scheduleScreenState extends State<scheduleScreen> {
         appBar: AppBar(
 
 
-          backgroundColor: Colors.blueGrey,
-          centerTitle: true,
+          backgroundColor: Colors.indigo.shade200,
+
           title: Text(
-            'スケジュール', style: TextStyle(fontSize: 16,color: Colors.white),
+            'Schdule', style: TextStyle(fontSize: 40,color: Colors.white),
 
           ),
           actions: [
@@ -150,7 +150,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
             ),
             Container(
               width: 500,
-              color: Colors.blueGrey,
+              color: Colors.indigo.shade200,
               child: Row(
                 children: [
                   Padding(
@@ -178,7 +178,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
 
             Container(
               width: 500,
-              color: Colors.blueGrey.shade100,
+              color: Colors.indigo.shade50,
               child: ListView(
                 shrinkWrap: true,
                 children: _getEventForDay(_selectedDay!)

@@ -36,10 +36,10 @@ class _QuestionPageState extends State<QuestionPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue[100],
+          backgroundColor: Colors.indigo.shade200,
           title: Text(
             '問題',
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 40),
           ),
         ),
         body:Column(
@@ -58,9 +58,8 @@ class _QuestionPageState extends State<QuestionPage> {
               ),
             ),
             Expanded(
-
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.only(left: 50.0,right: 50.0,top: 50.0),
                 child: ElevatedButton(
                   onPressed: (){
                     bool correctAnswer = answers[questionNumber];
@@ -70,28 +69,28 @@ class _QuestionPageState extends State<QuestionPage> {
                     }
                     if(questionNumber + 1 < questions.length){
                       setState(() {
-                         questionNumber++;
-                        });
-                      } else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Result(numberOfCorrectAnswer: numberOfCorrectAnswer),
-                          ),
-                            );
+                        questionNumber++;
+                      });
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Result(numberOfCorrectAnswer: numberOfCorrectAnswer),
+                        ),
+                      );
                     }
                   },
                   child: Text(
                     '○',
                     style: TextStyle(
-                    fontSize: 60.0,
+                      fontSize: 60.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.amberAccent,
-                    onPrimary: Colors.cyan,
-                    fixedSize: Size(500, 0),
+                      primary: Colors.indigo.shade200,
+                      onPrimary: Colors.indigo.shade50,
+                      fixedSize: Size(500, 0),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(15),
@@ -100,42 +99,45 @@ class _QuestionPageState extends State<QuestionPage> {
                   ),
                 ),
               ),
+
+
+
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.only(right: 50,left: 50,top: 18.0,bottom: 20.0),
                 child: ElevatedButton(
-                    onPressed: (){
-                      bool correctAnswer = answers[questionNumber];
-                      if (correctAnswer == false){
+                  onPressed: (){
+                    bool correctAnswer = answers[questionNumber];
+                    if (correctAnswer == false){
                       numberOfCorrectAnswer++;
-                      }
-                      if(questionNumber + 1 < questions.length){
-                        setState(() {
-                          questionNumber++;
-                          print(numberOfCorrectAnswer);
-                        });
-                      } else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Result(numberOfCorrectAnswer: numberOfCorrectAnswer),
-                          ),
-                            );
-                       }
-                      },
+                    }
+                    if(questionNumber + 1 < questions.length){
+                      setState(() {
+                        questionNumber++;
+                        print(numberOfCorrectAnswer);
+                      });
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Result(numberOfCorrectAnswer: numberOfCorrectAnswer),
+                        ),
+                      );
+                    }
+                  },
 
 
-                    child: Text(
-                      '✘',
-                      style: TextStyle(
+                  child: Text(
+                    '✘',
+                    style: TextStyle(
                       fontSize: 60.0,
-                      ),
                     ),
+                  ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.amberAccent,
-                    onPrimary: Colors.cyan,
-                    fixedSize: Size(500, 0),
+                      primary: Colors.indigo.shade200,
+                      onPrimary: Colors.indigo.shade50,
+                      fixedSize: Size(500, 0),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(15),
@@ -144,6 +146,7 @@ class _QuestionPageState extends State<QuestionPage> {
                   ),
                 ),
               ),
+
             ),
 
           ],
