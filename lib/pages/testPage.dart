@@ -31,7 +31,7 @@ class _testScreen extends State<testScreen> {
         appBar: AppBar(
           backgroundColor: Colors.indigo.shade200,
           title: Text(
-            'Test<科目選択>',
+            'Test <科目選択>',
             style: TextStyle(fontSize: 40),
           ),
         ),

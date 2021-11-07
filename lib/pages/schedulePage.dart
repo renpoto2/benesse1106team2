@@ -82,7 +82,7 @@ class _scheduleScreenState extends State<scheduleScreen> {
           backgroundColor: Colors.indigo.shade200,
 
           title: Text(
-            'Schdule', style: TextStyle(fontSize: 40,color: Colors.white),
+            'Schedule', style: TextStyle(fontSize: 40,color: Colors.white),
 
           ),
           actions: [
