@@ -12,7 +12,7 @@ class scheduleScreen extends StatefulWidget {
 class _scheduleScreenState extends State<scheduleScreen> {
   // This widget is the root of your application.
   DateTime _focusedDay = DateTime.now();
-  DateTime _testDay = DateTime.now().add(Duration(days: 24));
+  //DateTime _testDay = DateTime.now().add(Duration(days: 24));
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime? _selectedDay;
   Map<DateTime, List> _eventsList = {};
@@ -109,100 +109,116 @@ class _scheduleScreenState extends State<scheduleScreen> {
         ),
 
 
-        body:Column(
+        body: Container(
+              child:SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      TableCalendar(
+                        firstDay: DateTime.utc(2020, 1, 1),
+                        lastDay: DateTime.utc(2030, 12, 31),
+                        focusedDay: _focusedDay,//起動時画面
+                        eventLoader: _getEventForDay,
 
-          children: [
-            TableCalendar(
-              firstDay: DateTime.utc(2020, 1, 1),
-              lastDay: DateTime.utc(2030, 12, 31),
-              focusedDay: _focusedDay,//起動時画面
-              eventLoader: _getEventForDay,
-              calendarFormat: _calendarFormat,
-              //以下、追記部分。
-              // フォーマット変更のボタン押下時の処理
-              onFormatChanged: (format) {
-                if (_calendarFormat != format) {
-                  setState(() {
-                    _calendarFormat = format;
-                  });
-                }
-              },
-              headerStyle: HeaderStyle(
-                formatButtonVisible: false,
-              ),
-              selectedDayPredicate: (day) {
-                //以下追記部分
-                return isSameDay(_selectedDay, day);
-              },
-              onDaySelected: (selectedDay, focusedDay) {
-                if (!isSameDay(_selectedDay, selectedDay)) {
-                  setState(() {
-                    _selectedDay = selectedDay;
-                    _focusedDay = focusedDay;
-                  });
-                  _getEventForDay(selectedDay);
-                }
-              },
-              onPageChanged: (focusedDay) {
-                _focusedDay = focusedDay;
-              },
 
-            ),
+                        calendarFormat: _calendarFormat,
+                        /*
+                        //以下、追記部分。
+                        // フォーマット変更のボタン押下時の処理
 
-            Container(
-              height: 100,
-            ),
-            Container(
-              width: 500,
-              color: Colors.indigo.shade200,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.check_box,
-                      size: 30.0,
-                      color: Colors.white,
-                    ),
+                        onFormatChanged: (format) {
+                          if (_calendarFormat != format) {
+                            /*setState(() {
+                              _calendarFormat = format;
+                            });*/
+                          }
+                        },*/
+
+                        headerStyle: HeaderStyle(
+                          formatButtonVisible: false,
+                        ),
+
+
+                        selectedDayPredicate: (day) {
+                          //以下追記部分
+                          return isSameDay(_selectedDay, day);
+                        },
+                        onDaySelected: (selectedDay, focusedDay) {
+                          if (!isSameDay(_selectedDay, selectedDay)) {
+                            setState(() {
+                              _selectedDay = selectedDay;
+                              _focusedDay = focusedDay;
+                            });
+                            _getEventForDay(selectedDay);
+                          }
+                        },
+                        onPageChanged: (focusedDay) {
+                          _focusedDay = focusedDay;
+                        },
+
+                      ),
+                      Container(
+                        height: 100,
+                      ),
+                      Container(
+                        width: 500,
+                        color: Colors.indigo.shade200,
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(
+                                Icons.check_box,
+                                size: 30.0,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("ToDo",style:TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white
+
+                              ),),
+                            ),
+                          ],
+                        ),
+
+
+                      ),
+                      Container(
+                        width: 500,
+                        color: Colors.indigo.shade50,
+                        child: ListView(
+                          shrinkWrap: true,
+                          children: _getEventForDay(_selectedDay!)
+                              .map((event) => ListTile(
+                            title: Text("・"+event.toString(),
+                              style: TextStyle(
+                                //fontWeight: FontWeight.bold,
+                                fontSize: 25,
+
+                              ),),
+                          ))
+                              .toList(),
+                        ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("ToDo",style:TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white
-
-                    ),),
-                  ),
-                ],
               ),
 
 
-            ),
 
-            Container(
-              width: 500,
-              color: Colors.indigo.shade50,
-              child: ListView(
-                shrinkWrap: true,
-                children: _getEventForDay(_selectedDay!)
-                    .map((event) => ListTile(
-                          title: Text("・"+event.toString(),
-                          style: TextStyle(
-                            //fontWeight: FontWeight.bold,
-                            fontSize: 25,
 
-                          ),),
-                ))
-                    .toList(),
+
               ),
-            ),
 
 
 
 
-          ],
-        ));
+
+
+        );
   }
 }
 List _testDate = testDate;
